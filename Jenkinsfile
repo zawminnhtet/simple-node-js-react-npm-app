@@ -1,8 +1,10 @@
 pipeline {
-    agent any
-    tools {
-	nodejs 'node19'
+    agent {
+        docker {
+            args '-p 3000:3000'
+        }
     }
+
     stages {
         stage('Build') { 
             steps {
